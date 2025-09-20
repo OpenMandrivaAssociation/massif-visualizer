@@ -1,30 +1,27 @@
 Name:           massif-visualizer
 Summary:        Tool for visualizing massif data
-Version:        0.7.0
+Version:        25.08.1
 Release:        1
 License:        GPLv2
 Group:          Graphical desktop/KDE
 Url:            https://cgit.kde.org/massif-visualizer.git
-Source0:        http://download.kde.org/stable/massif-visualizer/%{version}/src/%{name}-%{version}.tar.xz
+Source0:        http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:  cmake(ECM)
-BuildRequires:  cmake(KF5Archive)
-BuildRequires:  cmake(KF5Config)
-BuildRequires:  cmake(KF5CoreAddons)
-BuildRequires:  cmake(KF5I18n)
-BuildRequires:  cmake(KF5KIO)
-BuildRequires:  cmake(KF5Parts)
-BuildRequires:  cmake(KChart)
-BuildRequires:  cmake(KGraphViewerPart)
-BuildRequires:  qt5-qttools
-BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(Qt5PrintSupport)
-BuildRequires:  pkgconfig(Qt5Svg)
-BuildRequires:  pkgconfig(Qt5Test)
-BuildRequires:  pkgconfig(Qt5Widgets)
-BuildRequires:  pkgconfig(Qt5XmlPatterns)
-
+BuildRequires:  cmake(KF6Archive)
+BuildRequires:  cmake(KF6Config)
+BuildRequires:  cmake(KF6CoreAddons)
+BuildRequires:  cmake(KF6I18n)
+BuildRequires:  cmake(KF6KIO)
+BuildRequires:  cmake(KF6Parts)
+BuildRequires:  pkgconfig(Qt6Core)
+BuildRequires:  pkgconfig(Qt6Gui)
+BuildRequires:  pkgconfig(Qt6PrintSupport)
+BuildRequires:  pkgconfig(Qt6Svg)
+BuildRequires:  pkgconfig(Qt6Test)
+BuildRequires:  pkgconfig(Qt6Widgets)
 BuildRequires:  pkgconfig(shared-mime-info)
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 Massif Visualizer is a tool that - *who would guess that* - visualizes massif
@@ -35,26 +32,10 @@ log with Gzip or Bzip2 and open it transparently with the visualizer.
 
 %files -f %{name}.lang
 %doc AUTHORS COPYING
-%{_kde5_bindir}/%{name}
-%{_kde5_datadir}/applications/org.kde.%{name}.desktop
-%{_kde5_datadir}/metainfo/org.kde.%{name}.appdata.xml
-%{_kde5_datadir}/%{name}/
-%{_kde5_datadir}/kxmlgui5/%{name}/
-%{_kde5_configdir}.kcfg/%{name}-settings.kcfg
-%{_kde5_iconsdir}/hicolor/scalable/apps/%{name}.svg
-%{_kde5_datadir}/mime/packages/massif.xml
-
-#--------------------------------------------------------------------
-
-%prep
-%setup -q
-
-%build
-%cmake_kde5
-%ninja
-
-%install
-%ninja_install -C build
-
-%find_lang %{name} --all-name
-
+%{_bindir}/%{name}
+%{_datadir}/applications/org.kde.%{name}.desktop
+%{_datadir}/metainfo/org.kde.%{name}.appdata.xml
+%{_datadir}/%{name}/
+%{_datadir}/config.kcfg/%{name}-settings.kcfg
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/mime/packages/massif.xml
