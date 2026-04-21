@@ -1,6 +1,6 @@
 Name:           massif-visualizer
 Summary:        Tool for visualizing massif data
-Version:        25.12.3
+Version:        26.04.0
 Release:        1
 License:        GPLv2
 Group:          Graphical desktop/KDE
@@ -36,8 +36,8 @@ log with Gzip or Bzip2 and open it transparently with the visualizer.
 %doc AUTHORS COPYING
 %{_bindir}/%{name}
 %{_datadir}/applications/org.kde.%{name}.desktop
-%{_datadir}/metainfo/org.kde.%{name}.appdata.xml
 %{_datadir}/%{name}/
 %{_datadir}/config.kcfg/%{name}-settings.kcfg
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/mime/packages/massif.xml
+%{_datadir}/metainfo/org.kde.massif_visualizer.appdata.xml
