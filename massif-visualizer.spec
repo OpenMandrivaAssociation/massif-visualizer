@@ -1,6 +1,6 @@
 Name:           massif-visualizer
 Summary:        Tool for visualizing massif data
-Version:        26.04.0
+Version:        26.04.2
 Release:        1
 License:        GPLv2
 Group:          Graphical desktop/KDE
